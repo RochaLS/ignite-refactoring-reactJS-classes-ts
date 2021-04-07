@@ -5,26 +5,25 @@ import { Container } from './styles';
 import api from '../../services/api';
 
 export function Food(props) {
-  const [available, setAvailable] = useState(true)
-  const { food, handleDelete } = props
+  const [available, setAvailable] = useState(true);
+  const { food, handleDelete } = props;
 
   async function toggleAvailable() {
     
-    const  isAvailable  = available
+    const  isAvailable  = available;
 
     await api.put(`/foods/${food.id}`, {
       ...food,
       available: !isAvailable,
     });
 
-    setAvailable(!isAvailable)
-    console.log(!isAvailable)
+    setAvailable(!isAvailable);
   }
 
   function setEditingFood() {
-    const { food, handleEditFood } = props
+    const { food, handleEditFood } = props;
 
-    handleEditFood(food)
+    handleEditFood(food);
   }
 
   return (
